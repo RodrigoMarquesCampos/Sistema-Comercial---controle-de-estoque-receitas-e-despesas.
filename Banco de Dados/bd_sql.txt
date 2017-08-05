@@ -1,0 +1,86 @@
+//Banco de Dados Sistema Comercial
+
+create database Comercial;
+
+use comercial;
+
+create table Pessoas(
+id integer auto_increment,
+nome varchar(50),
+primary key(id));
+
+create table Fornecedores(
+pessoa_fk integer not null,
+cnpj varchar(15),
+endereco varchar(70),
+telefone varchar(10),
+primary key(pessoa_fk),
+foreign key(pessoa_fk) references Pessoas(id));
+
+create table Usuarios(
+pessoa_fk integer not null,
+login varchar(30),
+senha varchar(20),
+primary key(pessoa_fk, login),
+foreign key(pessoa_fk) references Pessoas(id));
+
+create table Produtos(
+	
+	id integer auto_increment,
+	pessoa_fk integer not null,
+	qtde integer,
+	valor_venda float,
+	valor_compra float,
+	primary key(id, pessoa_fk),
+	foreign key(pessoa_fk) references Fornecedores(pessoa_fk));
+
+
+
+create table Transacoes(
+
+	id integer auto_increment,
+	tipo integer,
+	descricao varchar(100),
+	valor float,
+	produto_fk integer,
+	primary key(id, produto_fk),
+	foreign key(produto_fk) references Produtos(id));
+)
+
+
+
+
+create table Movimentacoes(
+	id integer auto_increment,
+	tipo int,
+	descricao varchar(100),
+	valor float,
+	primary key(id)
+);
+
+create table Pessoa_gera_transacao(
+	pessoa_fk integer,
+	transacao_fk integer,
+	primary key(pessoa_fk, transacao_fk),
+	foreign key(pessoa_fk) references Pessoas(id),
+	foreign key(transacao_fk) references Transacoes(id)
+);
+
+
+create table transacao_tem_produto(
+	produto_fk integer,
+	transacao_fk integer,
+	qtde integer,
+	primary key(produto_fk, transacao_fk),
+	foreign key(produto_fk) references Produtos(id),
+	foreign key(transacao_fk) references Transacoes(id)
+);
+
+create table transacao_gera_movimentacao(
+	movimentacao_fk integer not null,
+	transacao_fk integer not null,
+	primary key(movimentacao_fk, transacao_fk),
+	foreign key(transacao_fk) references Transacoes(id),
+	foreign key(movimentacao_fk) references Movimentacoes(id)
+)
+
