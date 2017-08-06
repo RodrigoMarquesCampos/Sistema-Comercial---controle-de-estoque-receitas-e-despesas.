@@ -1,1 +1,0 @@
-# Sistema-Comercial---controle-de-estoque-receitas-e-despesas.
