@@ -42,18 +42,18 @@
                 <input name="password2" type="password" class="form-control" id="inputNomeProduto" placeholder="*********" autocomplete="off">
             </div>
         </div>
-        <!--
+        
         <div class="form-group">
             
             <label for="inputGrupo" class="col-sm-3 control-label">Ativo</label>
             <div class="col-sm-9">
                 <select name="active" class="form-control">
-                    <option value="1" <?php// insert_input_value($this,"active",1);?>>Sim</option>
-                    <option value="0" <?php// insert_input_value($this,"active",0);?>>Não</option>
+                    <option value="1" <?php insert_input_value($this,"active",1);?>>Sim</option>
+                    <option value="0" <?php insert_input_value($this,"active",0);?>>Não</option>
                 </select>
             </div>
         </div>
-        -->
+        
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

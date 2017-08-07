@@ -43,7 +43,7 @@
                 <input name="password2" type="password" class="form-control" id="inputpasseord2" placeholder="******" autocomplete="off">
             </div>
         </div>
-        <!--
+        
         <div class="form-group">
             <label for="inputGrupo" class="col-sm-3 control-label">Ativo</label>
             <div class="col-sm-9">
@@ -53,7 +53,7 @@
                 </select>
             </div>
         </div>
-       -->
+       
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

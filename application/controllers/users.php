@@ -45,7 +45,7 @@
         $data["action"] = site_url("users/ajaxRemove/$id");
 
         $data["name"] = $user->name;
-        //$data["login"] = $user->login;
+        $data["login"] = $user->login;
         $data["level"] = $user->level;
 
         $this->load->view("modals/user-delete",$data);
@@ -78,7 +78,7 @@
         $this->form_validation->set_rules("password2", "Confirmação", "required|matches[password]");
         $this->form_validation->set_rules("login", "Login", "trim|required|is_unique[user.login]|xss_clean");
         $this->form_validation->set_rules("level", "Nível", "trim|required|xss_clean");
-       // $this->form_validation->set_rules("active", "Ativo", "trim|required|xss_clean");
+        $this->form_validation->set_rules("active", "Ativo", "trim|required|xss_clean");
 
         $this->form_validation->set_message("is_unique", "%s já está cadastrado no sistema");
 
@@ -92,7 +92,7 @@
             $user = array("name" => $this->input->post("name"),
                          "password" => $this->input->post("password"),
                          "login" => $this->input->post("login"),
-                         //"active" => $this->input->post("active"),
+                         "active" => $this->input->post("active"),
                          "level" => $this->input->post("level"));
 
             if($this->User_model->add($user)){
@@ -129,7 +129,7 @@
         $this->form_validation->set_rules("password2", "Confirmação", "required|matches[password]");
         $this->form_validation->set_rules("login", "Login", "trim|required|xss_clean");
         $this->form_validation->set_rules("level", "Nível", "trim|required|xss_clean");
-      //  $this->form_validation->set_rules("active", "Ativo", "trim|required|xss_clean");
+        $this->form_validation->set_rules("active", "Ativo", "trim|required|xss_clean");
         $this->form_validation->set_message("is_unique", "%s já está cadastrado no sistema");
 
         $data = new stdClass();
@@ -140,7 +140,7 @@
         }else{
             $user = array("name" => $this->input->post("name"),
                           "login" => $this->input->post("login"),
-                         // "active" => $this->input->post("active"),
+                          "active" => $this->input->post("active"),
                           "level" => $this->input->post("level"));
 
            
@@ -180,7 +180,7 @@
                     
         $user = array("name" => $this->input->post("name"),
                           "login" => $this->input->post("login"),
-                        //  "active" => $this->input->post("active"),
+                          "active" => $this->input->post("active"),
                           "level" => $this->input->post("level"));
 
             if($this->input->post("password") != ''){
