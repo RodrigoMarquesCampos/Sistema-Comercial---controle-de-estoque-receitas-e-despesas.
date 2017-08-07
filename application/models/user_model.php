@@ -52,6 +52,7 @@ class User_model extends MY_model {
         if ($query->num_rows() > 0){
             return $query->row();
         }
+        return false;
     }
 
     public function get_by_login($login){

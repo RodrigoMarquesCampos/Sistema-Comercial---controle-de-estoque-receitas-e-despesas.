@@ -46,10 +46,8 @@
         }
 
         $data["action"] = site_url("consumers/ajaxedit/$id");
-
         $data["idconsumer"] = $consumer->id;
-        $data["name"] = $consumer->name;
-
+        $data["name"] = $consumer->name;   
         $this->load->view("modals/consumer-form",$data);
     }
 
@@ -100,7 +98,7 @@
         }
 
         $this->load->helper(array("form", "url"));
-		$this->load->library("form_validation");
+        $this->load->library("form_validation");
 
         $this->form_validation->set_rules("idconsumer", "Código","trim|is_unic_edit[consumer.idconsumer,idconsumer.$id]|xss_clean");
         $this->form_validation->set_rules("name", "Nome", "trim|required|xss_clean");
@@ -109,11 +107,10 @@
 
         $data = new stdClass();
 
-		if ($this->form_validation->run() == FALSE){
+        if ($this->form_validation->run() == FALSE){
             $data->success = false;
-
             $data->error = $this->form_validation->error_array();;
-		}else{
+        }else{
             $consumer = array("name" => $this->input->post("name"));
 
             if($this->input->post("idconsumer") != ''){
