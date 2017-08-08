@@ -26,6 +26,8 @@
         </div>
         <div class="form-group">
                 <input type="submit" class="btn btn-success" value="Enviar">
+                <a href="<?php echo site_url('gerar_pdf.php');?>" <input type="button" class="btn btn-danger" value="Gerar PDF"> Gerar PDF</a>
+        </a>
         </div>
     </form>
 </div>
